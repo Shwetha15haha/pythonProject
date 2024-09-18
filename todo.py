@@ -12,6 +12,8 @@ while True:
                 print(item)
         case "exit":
             break
+        case _:
+            print("Unknown command. Please type add, show, or exit.")
 print("Bye!")
 
 # The match statement in Python is a control flow construct introduced in Python 3.10. It allows for pattern matching, which is similar to a switch-case statement in other languages but more powerful.
