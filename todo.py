@@ -6,10 +6,11 @@ while True:
     match user_action:
         case "add":
             todo = input("Enter a code: ")
-            todos.append(todo.capitalize())
+            todos.append(todo.title())
         case "show":
-            for item in todos:
-                print(item)
+            print("Your to do lists:")
+            for index, todo in enumerate(todos, 1):
+                print(f"{index}. {todo}")
         case "exit":
             break
         case _:
