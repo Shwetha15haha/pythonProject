@@ -1,7 +1,7 @@
 todos = []
 
 while True:
-    user_action = input("Type add, show or exit: ").lower().strip()
+    user_action = input("Type add, show, edit or exit: ").lower().strip()
 
     match user_action:
         case "add":
@@ -11,6 +11,12 @@ while True:
             print("Your to do lists:")
             for index, todo in enumerate(todos, 1):
                 print(f"{index}. {todo}")
+        case "edit":
+            number = int(input("Enter the number of todo: "))
+            number = number - 1
+            new_todo = input("Enter a new to do: ")
+            todos[number] = new_todo
+            print(new_todo.title())
         case "exit":
             break
         case _:
