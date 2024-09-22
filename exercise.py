@@ -39,8 +39,8 @@
 #
 # print("The amount in euros:", euros)
 
-6.
-ranking = ['John', 'Sen', 'Lisa']
+# 6.
+# ranking = ['John', 'Sen', 'Lisa']
 
 # for r in ranking:
 #     rank = ranking.index(r)
