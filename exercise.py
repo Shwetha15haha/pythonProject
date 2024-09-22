@@ -49,9 +49,15 @@ ranking = ['John', 'Sen', 'Lisa']
 #     print(ranking[rank])
 #     break
 
-rank = int(input("Enter a rank number:"))-1
-name = ranking[rank]
-print(name)
+# rank = int(input("Enter a rank number:"))-1
+# name = ranking[rank]
+# print(name)
+
+name = input("Enter a name: ")
+
+rank = ranking.index(name)+1
+
+print(rank)
 
 
 
