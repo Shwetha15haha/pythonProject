@@ -6,7 +6,7 @@ print(mylist[0])
 
 print(mylist.index('a'))
 
-mylist.__setitem__(1,'e')
+mylist.__setitem__(1, 'e')
 
 print(mylist)
 
