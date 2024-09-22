@@ -9,7 +9,7 @@
 #     print(name.capitalize())
 #
 # 2.
-# members = ["john smith", "sen plakay", "dora ngacely"]
+# members = ["john smith", "sen play", "dora nacelle"]
 #
 # for member in members:
 #     print(member.title())
