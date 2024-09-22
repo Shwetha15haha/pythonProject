@@ -72,3 +72,7 @@ index = int(input("Enter the index of the IP you want: "))
 
 print("You chose",ips[index])
 
+9.
+a = "abcd"
+file = open("whatever.txt", 'w')
+file.writelines(a)
