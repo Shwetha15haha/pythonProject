@@ -1,5 +1,3 @@
-todos = []
-
 while True:
     user_action = input("Type add, show, edit, exit or complete: ").lower().strip()
 
@@ -16,7 +14,10 @@ while True:
             file.writelines(todos)
             file.close()
         case "show":
-            print("Your to do lists:")
+            file = open('todos.txt', 'r')
+            todos = file.readlines()
+            file.close()
+
             for index, todo in enumerate(todos, 1):
                 print(f"{index}. {todo}")
         case "edit":
