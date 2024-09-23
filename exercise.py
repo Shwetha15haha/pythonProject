@@ -76,3 +76,8 @@ print("You chose",ips[index])
 a = "abcd"
 file = open("whatever.txt", 'w')
 file.writelines(a)
+
+10.
+file = open('files/todos.txt', 'r')
+content = file.read().strip()
+print(content)
