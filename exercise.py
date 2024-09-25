@@ -81,8 +81,11 @@
 # file = open('files/todos.txt', 'r')
 # content = file.read().strip()
 # print(content)
-10 .
-contents = ["This is file related code", "File method codes are reported", "File related codes are presented"]
+
+contents = ["This is file related code",
+            "File method codes are reported",
+            "File related codes are presented",
+            "Done"]
 
 filenames = ["doc.txt", "report.txt", "present.txt"]
 

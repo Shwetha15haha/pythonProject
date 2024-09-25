@@ -12,3 +12,10 @@ print(mylist)
 
 print(mylist.__getitem__(1))
 
+# output :
+# ['a', 'b', 'c']
+# a
+# 0
+# ['a', 'e', 'c']
+# e
+
