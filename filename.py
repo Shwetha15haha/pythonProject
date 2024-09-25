@@ -9,3 +9,10 @@ for filename in filenames:
 
 filenames = new_filenames
 print(filenames)
+
+# output :
+# ['1.Raw Data.txt', '2.Processed data.txt', '3.Reports.txt']
+# 1-Raw Data.txt
+# 2-Processed data.txt
+# 3-Reports.txt
+# ['1-Raw Data.txt', '2-Processed data.txt', '3-Reports.txt']
