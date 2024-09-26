@@ -77,11 +77,11 @@
 # file = open("whatever.txt", 'w')
 # file.writelines(a)
 #
-# 10.
+# 10
 # file = open('files/todos.txt', 'r')
 # content = file.read().strip()
 # print(content)
-
+11.
 contents = ["This is file related code",
             "File method codes are reported",
             "File related codes are presented",
@@ -92,3 +92,17 @@ filenames = ["doc.txt", "report.txt", "present.txt"]
 for content, filename in zip(contents, filenames):
     file = open(f"{filename}",'w')
     file.write(content)
+13.
+filenames = ['a.txt', 'b.txt', 'c.txt']
+
+for filename in filenames:
+    file = open(filename, 'r')
+    content = file.read()
+    print(content)
+14.
+filenames = ['doc.txt', 'report.txt', 'presentation.txt']
+
+for filename in filenames:
+    file = open(filename, 'w')
+    file.write("Hello")
+    file.close()
