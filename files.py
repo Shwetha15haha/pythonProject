@@ -16,3 +16,14 @@ with open('example.txt', 'r') as file:
     # Read each line in the file
     for line in file:
         print(line.strip())  # strip() removes the newline character
+member = input("Add a new member: ")
+
+file = open("members.txt", 'r')
+existing_members = file.readlines()
+file.close()
+
+existing_members.append("\n"+ member)
+
+file = open("members.txt", 'w')
+existing_members = file.writelines(existing_members)
+file.close()
