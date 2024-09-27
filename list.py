@@ -19,3 +19,7 @@ print(mylist.__getitem__(1))
 # ['a', 'e', 'c']
 # e
 
+
+upper_case = [word.upper() for word in mylist]
+print(upper_case)
+# ['A', 'E', 'C']
