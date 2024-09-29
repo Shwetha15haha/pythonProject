@@ -22,9 +22,10 @@ while True:
             # for item in todos:
             #     new_item = item.strip('\n')
             #     new_todo_list.append(new_item)
-            new_todo_list = [item.strip('\n') for item in todos]
+            # new_todo_list = [item.strip('\n') for item in todos]
 
-            for index, todo in enumerate(new_todo_list, 1):
+            for index, todo in enumerate(todos, 1):
+                todo = todo.strip('\n')
                 print(f"{index}. {todo}")
         case "edit":
             number = int(input("Enter the number of todo to edit: "))-1
