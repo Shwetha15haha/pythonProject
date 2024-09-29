@@ -1,3 +1,4 @@
+# Initialize n to 1 and print numbers from 1 to 10 using a while loop
 n = 1
 
 while n <= 10:

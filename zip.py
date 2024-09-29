@@ -11,6 +11,7 @@ combined_list = list(combined)
 print(combined_list)
 # Output: [('Alice', 25), ('Bob', 30), ('Charlie', 35)]
 
+# Iterate over pairs of names and ages, and print each name with its corresponding age
 for name, age in zip(names, ages):
     print(f"{name} is {age} years old")
 # Output: Alice is 25 years old

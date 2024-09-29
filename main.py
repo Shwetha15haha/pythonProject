@@ -15,9 +15,22 @@ if __name__ == '__main__':
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
 
+# Initialize an empty list to store country names
 countries = []
 
+# Start an infinite loop to continuously prompt the user for input
 while True:
+    # Prompt the user to enter a country name
     country = input("Enter the country: ")
+    # Add the entered country name to the list 'countries'
     countries.append(country)
+    # Print the updated list of countries
     print(countries)
+#i/o
+# Enter the country: india
+# ['india']
+# Enter the country: usa
+# ['india', 'usa']
+# Enter the country: australia
+# ['india', 'usa', 'australia']
+# Enter the country:
