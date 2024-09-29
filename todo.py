@@ -18,10 +18,11 @@ while True:
             todos = file.readlines()
             file.close()
 
-            new_todo_list = []
-            for item in todos:
-                new_item = item.strip('\n')
-                new_todo_list.append(new_item)
+            # new_todo_list = []
+            # for item in todos:
+            #     new_item = item.strip('\n')
+            #     new_todo_list.append(new_item)
+            new_todo_list = [item.strip('\n') for item in todos]
 
             for index, todo in enumerate(new_todo_list, 1):
                 print(f"{index}. {todo}")
