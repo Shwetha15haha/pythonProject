@@ -22,7 +22,7 @@ with open('example.txt', 'r') as file:
 member = input("Add a new member: ")
 
 # Open the file 'members.txt' in read mode
-file = open("members.txt", 'r')
+file = open("files/members.txt", 'r')
 # Read all existing members from the file into a list
 existing_members = file.readlines()
 # Close the file after reading
@@ -32,7 +32,7 @@ file.close()
 existing_members.append("\n" + member)
 
 # Open the file 'members.txt' in write mode to update it
-file = open("members.txt", 'w')
+file = open("files/members.txt", 'w')
 # Write the updated list of members back to the file
 file.writelines(existing_members)
 # Close the file after writing

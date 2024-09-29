@@ -98,7 +98,7 @@ print("You chose", ips[index])
 a = "abcd"
 
 # Open a file 'whatever.txt' in write mode and write the string 'a' to the file
-file = open("whatever.txt", 'w')
+file = open("files/whatever.txt", 'w')
 file.writelines(a)
 
 # 10.
