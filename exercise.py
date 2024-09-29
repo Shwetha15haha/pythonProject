@@ -144,3 +144,11 @@ for filename in filenames:
     file = open(filename, 'w')
     file.write("Hello")
     file.close()
+
+# 15.
+# # Transforming strings in filenames list using list comprehension
+filenames = ['1.doc','2.report','3.presentation']
+filenames = [filename.replace('.', '-') + '.txt' for filename in filenames]
+print(filenames)
+
+# output : ['1-doc.txt', '2-report.txt', '3-presentation.txt']
