@@ -80,26 +80,41 @@ while True:
 print("Bye!")
 
 # i/o :
+# Type add, show, edit, exit or complete: add
+# Enter a todo: Read
 # Type add, show, edit, exit or complete: show
 # Your todos list:
-# 1. Dance
-# 2. Eat
-# 3. Sleeep
-# 4. Code
-# 5. Debug
-# Type add, show, edit, exit or complete: edit
-# Enter the number of todo to edit: 3
-# Here is existing todos : ['Dance\n', 'Eat\n', 'Sleeep\n', 'Code\n', 'Debug\n']
-# Enter a new to do: sleep
-# Here is updated todos : ['Dance\n', 'Eat\n', 'Sleep\n', 'Code\n', 'Debug\n']
-# Type add, show, edit, exit or complete: show
-# Your todos list:
-# 1. Dance
+# 1. Dance Like No One Is Watching You ;)
 # 2. Eat
 # 3. Sleep
 # 4. Code
 # 5. Debug
-# Type add, show, edit, exit or complete:
+# 6. Read
+# Type add, show, edit, exit or complete: edit
+# Enter the number of todo to edit: 2
+# Here are the existing todos: ['Dance Like No One Is Watching You ;)\n', 'Eat\n', 'Sleep\n', 'Code\n', 'Debug\n', 'Read\n']
+# Enter a new todo: eat healthy
+# Here are the updated todos: ['Dance Like No One Is Watching You ;)\n', 'Eat Healthy\n', 'Sleep\n', 'Code\n', 'Debug\n', 'Read\n']
+# Type add, show, edit, exit or complete: show
+# Your todos list:
+# 1. Dance Like No One Is Watching You ;)
+# 2. Eat Healthy
+# 3. Sleep
+# 4. Code
+# 5. Debug
+# 6. Read
+# Type add, show, edit, exit or complete: complete
+# Enter the number of todo to complete: 6
+# Type add, show, edit, exit or complete: show
+# Your todos list:
+# 1. Dance Like No One Is Watching You ;)
+# 2. Eat Healthy
+# 3. Sleep
+# 4. Code
+# 5. Debug
+# Type add, show, edit, exit or complete: exit
+# Bye!
+
 
 
 # The match statement in Python is a control flow construct introduced in Python 3.10.
