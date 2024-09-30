@@ -61,13 +61,16 @@ while True:
             # Open the file in read mode and read all lines
             with open('files/todos.txt', 'r') as file:
                 todos = file.readlines()
-
+            todo_to_remove = todos[number].strip()
             # Remove the specified todo item from the list
             todos.pop(number)
 
             # Open the file in write mode and write the remaining todos back to the file
             with open('files/todos.txt', 'w') as file:
                 file.writelines(todos)
+            # Printing message to user about removed todo
+            message = f"Todo {todo_to_remove} is removed from todo list"
+            print(message)
 
         case "exit":
             # Exit the loop
@@ -81,37 +84,38 @@ print("Bye!")
 
 # i/o :
 # Type add, show, edit, exit or complete: add
-# Enter a todo: Read
+# Enter a todo: Eat chocolate
 # Type add, show, edit, exit or complete: show
 # Your todos list:
-# 1. Dance Like No One Is Watching You ;)
-# 2. Eat
-# 3. Sleep
-# 4. Code
-# 5. Debug
-# 6. Read
+# 1. Eat Healthy
+# 2. Sleep
+# 3. Code
+# 4. Debug
+# 5. Chill , Just Relax
+# 6. Eat Chocolate
 # Type add, show, edit, exit or complete: edit
-# Enter the number of todo to edit: 2
-# Here are the existing todos: ['Dance Like No One Is Watching You ;)\n', 'Eat\n', 'Sleep\n', 'Code\n', 'Debug\n', 'Read\n']
-# Enter a new todo: eat healthy
-# Here are the updated todos: ['Dance Like No One Is Watching You ;)\n', 'Eat Healthy\n', 'Sleep\n', 'Code\n', 'Debug\n', 'Read\n']
+# Enter the number of todo to edit: 5
+# Here are the existing todos: ['Eat Healthy\n', 'Sleep\n', 'Code\n', 'Debug\n', 'Chill , Just Relax\n', 'Eat Chocolate\n']
+# Enter a new todo: chill!just relax buddy
+# Here are the updated todos: ['Eat Healthy\n', 'Sleep\n', 'Code\n', 'Debug\n', 'Chill!Just Relax Buddy\n', 'Eat Chocolate\n']
 # Type add, show, edit, exit or complete: show
 # Your todos list:
-# 1. Dance Like No One Is Watching You ;)
-# 2. Eat Healthy
-# 3. Sleep
-# 4. Code
-# 5. Debug
-# 6. Read
+# 1. Eat Healthy
+# 2. Sleep
+# 3. Code
+# 4. Debug
+# 5. Chill!Just Relax Buddy
+# 6. Eat Chocolate
 # Type add, show, edit, exit or complete: complete
-# Enter the number of todo to complete: 6
+# Enter the number of todo to complete: 1
+# Todo Eat Healthy is removed from todo list
 # Type add, show, edit, exit or complete: show
 # Your todos list:
-# 1. Dance Like No One Is Watching You ;)
-# 2. Eat Healthy
-# 3. Sleep
-# 4. Code
-# 5. Debug
+# 1. Sleep
+# 2. Code
+# 3. Debug
+# 4. Chill!Just Relax Buddy
+# 5. Eat Chocolate
 # Type add, show, edit, exit or complete: exit
 # Bye!
 
