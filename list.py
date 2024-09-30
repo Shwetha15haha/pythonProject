@@ -33,3 +33,9 @@ upper_case = [word.upper() for word in mylist]
 # Print the list of uppercase words
 print(upper_case)
 # output : ['A', 'E', 'C']
+
+# list comprehension method
+names = ["john smith", "jay santi", "eva kuki"]
+names = [name.title() for name in names]
+print(names)
+# output : ['John Smith', 'Jay Santi', 'Eva Kuki']
