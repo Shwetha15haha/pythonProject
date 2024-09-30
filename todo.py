@@ -1,53 +1,106 @@
 while True:
+    # Prompt the user to enter an action and convert it to lowercase and strip any extra spaces
     user_action = input("Type add, show, edit, exit or complete: ").lower().strip()
 
+    # Match the user action to the corresponding case
     match user_action:
         case "add":
-            todo = input("Enter a todo: ")+ "\n"
-            # file = open('files/todos.txt', 'r')
-            # todos = file.readlines()
-            # file.close()
+            # Prompt the user to enter a new todo item
+            todo = input("Enter a todo: ") + "\n"
 
-            with open('files/todos.txt','r') as file:
-                todos = file.readlines()
-
-            todos.append(todo.title())
-
-            # file = open('files/todos.txt', 'w')
-            # file.writelines(todos)
-            # file.close()
-
-            with open('files/todos.txt', 'w') as file:
-                file.writelines(todos)
-        case "show":
-            # file = open('files/todos.txt', 'r')
-            # todos = file.readlines()
-            # file.close()
-
+            # Open the file in read mode and read all lines
             with open('files/todos.txt', 'r') as file:
                 todos = file.readlines()
 
-            # new_todo_list = []
-            # for item in todos:
-            #     new_item = item.strip('\n')
-            #     new_todo_list.append(new_item)
-            # new_todo_list = [item.strip('\n') for item in todos]
+            # Append the new todo item to the list, capitalizing the first letter of each word
+            todos.append(todo.title())
 
+            # Open the file in write mode and write all todos back to the file
+            with open('files/todos.txt', 'w') as file:
+                file.writelines(todos)
+
+        case "show":
+            # Open the file in read mode and read all lines
+            print('Your todos list:')
+            with open('files/todos.txt', 'r') as file:
+                todos = file.readlines()
+
+            # Enumerate through the todos and print each one with its index
             for index, todo in enumerate(todos, 1):
-                todo = todo.strip('\n')
+                todo = todo.strip('\n')  # Remove the newline character
                 print(f"{index}. {todo}")
+
         case "edit":
-            number = int(input("Enter the number of todo to edit: "))-1
-            new_todo = input("Enter a new to do: ")
-            todos[number] = new_todo.title()
+            # Prompt the user to enter the number of the todo item to edit
+            number = int(input("Enter the number of todo to edit: ")) - 1
+
+            # Open the file in read mode and read all lines
+            with open('files/todos.txt', 'r') as file:
+                todos = file.readlines()
+
+            # Display the existing todos
+            print('Here are the existing todos:', todos)
+
+            # Prompt the user to enter a new todo item
+            new_todo = input("Enter a new todo: ")
+
+            # Update the specified todo item
+            todos[number] = new_todo.title() + '\n'
+
+            # Display the updated todos
+            print('Here are the updated todos:', todos)
+
+            # Open the file in write mode and write all todos back to the file
+            with open('files/todos.txt', 'w') as file:
+                file.writelines(todos)
+
         case "complete":
-            number = int(input("Enter the number of todo to complete: "))-1
+            # Prompt the user to enter the number of the todo item to complete
+            number = int(input("Enter the number of todo to complete: ")) - 1
+
+            # Open the file in read mode and read all lines
+            with open('files/todos.txt', 'r') as file:
+                todos = file.readlines()
+
+            # Remove the specified todo item from the list
             todos.pop(number)
+
+            # Open the file in write mode and write the remaining todos back to the file
+            with open('files/todos.txt', 'w') as file:
+                file.writelines(todos)
+
         case "exit":
+            # Exit the loop
             break
+
         case _:
-            print("Unknown command. Please type add, show, or exit.")
+            # Handle unknown commands
+            print("Unknown command. Please type add, show, edit, complete, or exit.")
+
 print("Bye!")
+
+# i/o :
+# Type add, show, edit, exit or complete: show
+# Your todos list:
+# 1. Dance
+# 2. Eat
+# 3. Sleeep
+# 4. Code
+# 5. Debug
+# Type add, show, edit, exit or complete: edit
+# Enter the number of todo to edit: 3
+# Here is existing todos : ['Dance\n', 'Eat\n', 'Sleeep\n', 'Code\n', 'Debug\n']
+# Enter a new to do: sleep
+# Here is updated todos : ['Dance\n', 'Eat\n', 'Sleep\n', 'Code\n', 'Debug\n']
+# Type add, show, edit, exit or complete: show
+# Your todos list:
+# 1. Dance
+# 2. Eat
+# 3. Sleep
+# 4. Code
+# 5. Debug
+# Type add, show, edit, exit or complete:
+
 
 # The match statement in Python is a control flow construct introduced in Python 3.10.
 # It allows for pattern matching, which is similar to a switch-case statement in other languages but more powerful.
