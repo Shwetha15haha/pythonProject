@@ -13,27 +13,39 @@ password = input("Enter the password: ")
 # output :
 # Password is correct
 
-result =[]
+# Initialize the result list
+result = []
+
+# Check if the password length is at least 8 characters
 if len(password) >= 8:
     result.append(True)
 else:
     result.append(False)
 
-digit = False
-for i in password:
-    if i.isdigit():
-        digit = True
+# Check if the password contains at least one digit
+digit = any(char.isdigit() for char in password)
 result.append(digit)
 
-upper = False
-for i in password:
-    if i.isupper():
-        upper = True
+# Check if the password contains at least one uppercase letter
+upper = any(char.isupper() for char in password)
 result.append(upper)
 
+# Print the result list
 print(result)
 
+# Check if all conditions are met for a strong password
 if all(result):
     print('Strong Password')
 else:
     print('Weak Password')
+
+# 1.
+# Enter the password: jkqghwdiuk15eo8984
+# [True, True, False]
+# Weak Password
+
+# 2.
+# Enter the password: Skhkdele566
+# [True, True, True]
+# Strong Password
+
