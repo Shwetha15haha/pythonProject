@@ -1,7 +1,7 @@
 # Creating a custom function to get todos
 def get_todos():
-    with open('files/todos.txt', 'r') as file:
-        todos_local = file.readlines()
+    with open('files/todos.txt', 'r') as file_local:
+        todos_local = file_local.readlines()
     return todos_local
 
 while True:
