@@ -3,23 +3,23 @@ while True:
     user_action = input("Type add, show, edit, complete or exit: ").lower().strip()
 
     # Check if the user action is "add"
-    if "add" in user_action:
+    if user_action.startswith('add'):
         # Extract the todo from user input
-        todo = user_action[4:] + "\n"
+        todo = user_action[4:]
 
         # Open the file in read mode and read all lines
         with open('files/todos.txt', 'r') as file:
             todos = file.readlines()
 
         # Append the new todo item to the list, capitalizing the first letter of each word
-        todos.append(todo.title())
+        todos.append(todo.title() + '\n')
 
         # Open the file in write mode and write all todos back to the file
         with open('files/todos.txt', 'w') as file:
             file.writelines(todos)
 
     # Check if the user action is "show"
-    elif "show" in user_action:
+    elif user_action.startswith('show'):
         # Open the file in read mode and read all lines
         print('Your todos list:')
         with open('files/todos.txt', 'r') as file:
@@ -31,9 +31,9 @@ while True:
             print(f"{index}. {todo}")
 
     # Check if the user action is "edit"
-    elif "edit" in user_action:
+    elif user_action.startswith('edit'):
         # Extract the number of the todo item to edit
-        number = int(user_action[5:])-1
+        number = int(user_action[5:]) - 1
 
         # Open the file in read mode and read all lines
         with open('files/todos.txt', 'r') as file:
@@ -56,7 +56,7 @@ while True:
             file.writelines(todos)
 
     # Check if the user action is "complete"
-    elif "complete" in user_action:
+    elif user_action.startswith('complete'):
         # Extract the number of todo item to remove
         number = int(user_action[9:]) - 1
 
@@ -75,7 +75,7 @@ while True:
         print(f"Todo '{todo_to_remove}' is removed from the todo list")
 
     # Check if the user action is "exit"
-    elif "exit" in user_action:
+    elif user_action.startswith('exit'):
         # Exit the loop
         break
 
