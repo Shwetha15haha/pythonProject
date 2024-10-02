@@ -150,5 +150,21 @@ for filename in filenames:
 filenames = ['1.doc','2.report','3.presentation']
 filenames = [filename.replace('.', '-') + '.txt' for filename in filenames]
 print(filenames)
-
 # output : ['1-doc.txt', '2-report.txt', '3-presentation.txt']
+
+# 16.
+# Handing error
+try:
+    width = float(input('Enter the width of rectangle: '))
+    length = float(input('Enter the length of rectangle: '))
+    area = length * width
+    print('Area:', area)
+
+except ValueError:
+    print('Please enter a number')
+# Enter the width of rectangle: 2
+# Enter the length of rectangle: 3
+# Area: 6.0
+
+# Enter the width of rectangle: two
+# Please enter a number
