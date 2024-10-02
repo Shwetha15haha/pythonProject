@@ -32,28 +32,33 @@ while True:
 
     # Check if the user action is "edit"
     elif user_action.startswith('edit'):
-        # Extract the number of the todo item to edit
-        number = int(user_action[5:]) - 1
+        try:
+            # Extract the number of the todo item to edit
+            number = int(user_action[5:]) - 1
 
-        # Open the file in read mode and read all lines
-        with open('files/todos.txt', 'r') as file:
-            todos = file.readlines()
+            # Open the file in read mode and read all lines
+            with open('files/todos.txt', 'r') as file:
+                todos = file.readlines()
 
-        # Display the existing todos
-        print('Here are the existing todos:', todos)
+            # Display the existing todos
+            print('Here are the existing todos:', todos)
 
-        # Prompt the user to enter a new todo item
-        new_todo = input("Enter a new todo: ")
+            # Prompt the user to enter a new todo item
+            new_todo = input("Enter a new todo: ")
 
-        # Update the specified todo item
-        todos[number] = new_todo.title() + '\n'
+            # Update the specified todo item
+            todos[number] = new_todo.title() + '\n'
 
-        # Display the updated todos
-        print('Here are the updated todos:', todos)
+            # Display the updated todos
+            print('Here are the updated todos:', todos)
 
-        # Open the file in write mode and write all todos back to the file
-        with open('files/todos.txt', 'w') as file:
-            file.writelines(todos)
+            # Open the file in write mode and write all todos back to the file
+            with open('files/todos.txt', 'w') as file:
+                file.writelines(todos)
+
+        except ValueError:
+            print('Your command not valid')
+            user_action = input("Type add, show, edit, complete or exit: ").lower().strip()
 
     # Check if the user action is "complete"
     elif user_action.startswith('complete'):
