@@ -1,8 +1,8 @@
 # Creating a custom function to get todos
 def get_todos():
     with open('files/todos.txt', 'r') as file:
-        todos = file.readlines()
-    return todos
+        todos_local = file.readlines()
+    return todos_local
 
 while True:
     # Prompt the user to enter an action, convert it to lowercase, and strip any extra spaces
