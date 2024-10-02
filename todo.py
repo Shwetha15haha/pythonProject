@@ -32,6 +32,7 @@ while True:
 
     # Check if the user action is "edit"
     elif user_action.startswith('edit'):
+        # Your code that might raise an ValueError
         try:
             # Extract the number of the todo item to edit
             number = int(user_action[5:]) - 1
@@ -56,28 +57,40 @@ while True:
             with open('files/todos.txt', 'w') as file:
                 file.writelines(todos)
 
+        # This block will execute if a ValueError occurs
         except ValueError:
             print('Your command not valid')
-            user_action = input("Type add, show, edit, complete or exit: ").lower().strip()
+
+            # Continue to the next iteration of the loop
+            continue # Ignore the code below and start from begining with user input
 
     # Check if the user action is "complete"
     elif user_action.startswith('complete'):
-        # Extract the number of todo item to remove
-        number = int(user_action[9:]) - 1
+        # Your code that might raise an IndexError
+        try:
+            # Extract the number of todo item to remove
+            number = int(user_action[9:]) - 1
 
-        # Open the file in read mode and read all lines
-        with open('files/todos.txt', 'r') as file:
-            todos = file.readlines()
+            # Open the file in read mode and read all lines
+            with open('files/todos.txt', 'r') as file:
+                todos = file.readlines()
 
-        # Remove the specified todo item from the list
-        todo_to_remove = todos.pop(number).strip()
+            # Remove the specified todo item from the list
+            todo_to_remove = todos.pop(number).strip()
 
-        # Open the file in write mode and write the remaining todos back to the file
-        with open('files/todos.txt', 'w') as file:
-            file.writelines(todos)
+            # Open the file in write mode and write the remaining todos back to the file
+            with open('files/todos.txt', 'w') as file:
+                file.writelines(todos)
 
-        # Print a message to the user about the removed todo
-        print(f"Todo '{todo_to_remove}' is removed from the todo list")
+            # Print a message to the user about the removed todo
+            print(f"Todo '{todo_to_remove}' is removed from the todo list")
+
+        # This block will execute if an IndexError occurs
+        except IndexError:
+            print('There is no todo with that number')
+
+            # Continue to the next iteration of the loop
+            continue
 
     # Check if the user action is "exit"
     elif user_action.startswith('exit'):
