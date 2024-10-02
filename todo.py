@@ -1,3 +1,9 @@
+# Creating a custom function to get todos
+def get_todos():
+    with open('files/todos.txt', 'r') as file:
+        todos = file.readlines()
+    return todos
+
 while True:
     # Prompt the user to enter an action, convert it to lowercase, and strip any extra spaces
     user_action = input("Type add, show, edit, complete or exit: ").lower().strip()
@@ -8,8 +14,7 @@ while True:
         todo = user_action[4:]
 
         # Open the file in read mode and read all lines
-        with open('files/todos.txt', 'r') as file:
-            todos = file.readlines()
+        todos = get_todos()
 
         # Append the new todo item to the list, capitalizing the first letter of each word
         todos.append(todo.title() + '\n')
@@ -22,8 +27,7 @@ while True:
     elif user_action.startswith('show'):
         # Open the file in read mode and read all lines
         print('Your todos list:')
-        with open('files/todos.txt', 'r') as file:
-            todos = file.readlines()
+        todos = get_todos()
 
         # Enumerate through the todos and print each one with its index
         for index, todo in enumerate(todos, 1):
@@ -38,8 +42,7 @@ while True:
             number = int(user_action[5:]) - 1
 
             # Open the file in read mode and read all lines
-            with open('files/todos.txt', 'r') as file:
-                todos = file.readlines()
+            todos = get_todos()
 
             # Display the existing todos
             print('Here are the existing todos:', todos)
@@ -72,8 +75,7 @@ while True:
             number = int(user_action[9:]) - 1
 
             # Open the file in read mode and read all lines
-            with open('files/todos.txt', 'r') as file:
-                todos = file.readlines()
+            todos = get_todos()
 
             # Remove the specified todo item from the list
             todo_to_remove = todos.pop(number).strip()
