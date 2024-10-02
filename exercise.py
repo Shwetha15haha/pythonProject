@@ -147,7 +147,7 @@ for filename in filenames:
 
 # 15.
 # # Transforming strings in filenames list using list comprehension
-filenames = ['1.doc','2.report','3.presentation']
+filenames = ['1.doc', '2.report', '3.presentation']
 filenames = [filename.replace('.', '-') + '.txt' for filename in filenames]
 print(filenames)
 # output : ['1-doc.txt', '2-report.txt', '3-presentation.txt']
@@ -164,6 +164,8 @@ try:
 
 except ValueError:
     print('Please enter a number')
+
+
 # Enter the width of rectangle: 2
 # Enter the length of rectangle: 3
 # Area: 6.0
@@ -174,3 +176,37 @@ except ValueError:
 # Enter the width of rectangle: 5
 # Enter the length of rectangle: 5
 # That looks like a square
+
+# 17.
+def get_average():
+    # Open the file 'data.txt' in read mode
+    with open('files/data.txt', 'r') as file:
+        # Read all lines from the file
+        data = file.readlines()
+
+        # Skip the first line (assuming it's a header) and convert the rest to floats
+        data_values = data[1:]
+        data_values = [float(i) for i in data_values]
+
+        # Calculate the average of the data values
+        average_local = sum(data_values) / len(data_values)
+
+    # Return the calculated average
+    return average_local
+
+
+# Call the function and store the result in 'average'
+average = get_average()
+
+# Print the average value
+print(average)
+
+# input :
+# temperatures
+# 5
+# 32
+# 38
+# 23
+# 24
+# output :
+# 24.4
