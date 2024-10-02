@@ -157,6 +157,8 @@ print(filenames)
 try:
     width = float(input('Enter the width of rectangle: '))
     length = float(input('Enter the length of rectangle: '))
+    if width == length:
+        exit('That looks like a square')
     area = length * width
     print('Area:', area)
 
@@ -168,3 +170,7 @@ except ValueError:
 
 # Enter the width of rectangle: two
 # Please enter a number
+
+# Enter the width of rectangle: 5
+# Enter the length of rectangle: 5
+# That looks like a square
