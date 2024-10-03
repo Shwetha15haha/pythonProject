@@ -231,3 +231,36 @@ print(get_max())
 
 # output: 9.7
 
+
+# 19.
+# Prompt the user to enter a value for feet and inches
+feet_inches = input('Enter feet and inches: ')
+
+# Define a function to convert feet and inches to meters
+def convert(feet_inches):
+    # Split the input string into two parts: feet and inches
+    parts = feet_inches.split(".")
+    # Convert the feet part to a float
+    feet = float(parts[0])
+    # Convert the inches part to a float
+    inches = float(parts[1])
+
+    # Calculate the total meters by converting feet to meters and inches to meters
+    meters = feet * 0.3048 + inches * 0.0254
+    # Return the result in meters
+    return meters
+
+# Call the convert function with the user input and store the result
+result = convert(feet_inches)
+
+# Check if the result is less than 1 meter
+if result < 1:
+    # If the result is less than 1 meter, print that the kid is too small
+    print('Kid is too small.')
+else:
+    # If the result is 1 meter or more, print that the kid can use the slide
+    print('Kid can use the slide')
+
+# Enter feet and inches: 3.8
+# Kid can use the slide
+
