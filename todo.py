@@ -4,6 +4,10 @@ def get_todos(filepath):
         todos_local = file_local.readlines()
     return todos_local
 
+def write_todos(filepath, todos_arg):
+    with open(filepath, 'w') as file_local:
+        file_local.writelines(todos_arg)
+
 while True:
     # Prompt the user to enter an action, convert it to lowercase, and strip any extra spaces
     user_action = input("Type add, show, edit, complete or exit: ").lower().strip()
@@ -20,8 +24,7 @@ while True:
         todos.append(todo.title() + '\n')
 
         # Open the file in write mode and write all todos back to the file
-        with open('files/todos.txt', 'w') as file:
-            file.writelines(todos)
+        write_todos('files/todos.txt', todos)
 
     # Check if the user action is "show"
     elif user_action.startswith('show'):
@@ -57,8 +60,7 @@ while True:
             print('Here are the updated todos:', todos)
 
             # Open the file in write mode and write all todos back to the file
-            with open('files/todos.txt', 'w') as file:
-                file.writelines(todos)
+            write_todos('files/todos.txt', todos)
 
         # This block will execute if a ValueError occurs
         except ValueError:
@@ -81,8 +83,7 @@ while True:
             todo_to_remove = todos.pop(number).strip()
 
             # Open the file in write mode and write the remaining todos back to the file
-            with open('files/todos.txt', 'w') as file:
-                file.writelines(todos)
+            write_todos('files/todos.txt', todos)
 
             # Print a message to the user about the removed todo
             print(f"Todo '{todo_to_remove}' is removed from the todo list")
