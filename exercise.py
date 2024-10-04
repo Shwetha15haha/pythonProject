@@ -237,21 +237,28 @@ print(get_max())
 feet_inches = input('Enter feet and inches: ')
 
 # Define a function to convert feet and inches to meters
-def convert(feet_inches):
+def parse(feet_inches):
     # Split the input string into two parts: feet and inches
     parts = feet_inches.split(".")
     # Convert the feet part to a float
     feet = float(parts[0])
     # Convert the inches part to a float
     inches = float(parts[1])
+    # Return feet and inches
+    return {'feet': feet, 'inches': inches}
 
+def convert(feet, inches):
     # Calculate the total meters by converting feet to meters and inches to meters
     meters = feet * 0.3048 + inches * 0.0254
     # Return the result in meters
     return meters
 
 # Call the convert function with the user input and store the result
-result = convert(feet_inches)
+parsed = parse(feet_inches)
+
+result = convert(parsed['feet'], parsed['inches'])
+
+print(f"{parsed['feet']} feet and {parsed['inches']} is equal to {result}")
 
 # Check if the result is less than 1 meter
 if result < 1:
@@ -261,6 +268,6 @@ else:
     # If the result is 1 meter or more, print that the kid can use the slide
     print('Kid can use the slide')
 
-# Enter feet and inches: 3.8
+# Enter feet and inches: 5.10
+# 5.0 feet and 10.0 is equal to 1.778
 # Kid can use the slide
-
