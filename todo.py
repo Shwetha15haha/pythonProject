@@ -12,6 +12,15 @@ def write_todos(todos_arg, filepath='files/todos.txt'):
     with open(filepath, 'w') as file_local:
         file_local.writelines(todos_arg)
 
+text = """
+Created two custom functions:
+get_todos(),
+write_todos().
+These are called in if/elsif statements.
+"""
+
+print(text)
+
 while True:
     # Prompt the user to enter an action, convert it to lowercase, and strip any extra spaces
     user_action = input("Type add, show, edit, complete or exit: ").lower().strip()
