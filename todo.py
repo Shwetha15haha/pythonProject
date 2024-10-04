@@ -1,10 +1,10 @@
 # Creating a custom function to get todos
-def get_todos(filepath):
+def get_todos(filepath='files/todos.txt'):
     with open(filepath, 'r') as file_local:
         todos_local = file_local.readlines()
     return todos_local
 
-def write_todos(filepath, todos_arg):
+def write_todos(todos_arg, filepath='files/todos.txt'):
     with open(filepath, 'w') as file_local:
         file_local.writelines(todos_arg)
 
@@ -18,19 +18,19 @@ while True:
         todo = user_action[4:]
 
         # Open the file in read mode and read all lines
-        todos = get_todos('files/todos.txt')
+        todos = get_todos()
 
         # Append the new todo item to the list, capitalizing the first letter of each word
         todos.append(todo.title() + '\n')
 
         # Open the file in write mode and write all todos back to the file
-        write_todos('files/todos.txt', todos)
+        write_todos(todos)
 
     # Check if the user action is "show"
     elif user_action.startswith('show'):
         # Open the file in read mode and read all lines
         print('Your todos list:')
-        todos = get_todos('files/todos.txt')
+        todos = get_todos()
 
         # Enumerate through the todos and print each one with its index
         for index, todo in enumerate(todos, 1):
@@ -45,7 +45,7 @@ while True:
             number = int(user_action[5:]) - 1
 
             # Open the file in read mode and read all lines
-            todos = get_todos('files/todos.txt')
+            todos = get_todos()
 
             # Display the existing todos
             print('Here are the existing todos:', todos)
@@ -60,7 +60,7 @@ while True:
             print('Here are the updated todos:', todos)
 
             # Open the file in write mode and write all todos back to the file
-            write_todos('files/todos.txt', todos)
+            write_todos(todos)
 
         # This block will execute if a ValueError occurs
         except ValueError:
@@ -77,13 +77,13 @@ while True:
             number = int(user_action[9:]) - 1
 
             # Open the file in read mode and read all lines
-            todos = get_todos('files/todos.txt')
+            todos = get_todos()
 
             # Remove the specified todo item from the list
             todo_to_remove = todos.pop(number).strip()
 
             # Open the file in write mode and write the remaining todos back to the file
-            write_todos('files/todos.txt', todos)
+            write_todos(todos)
 
             # Print a message to the user about the removed todo
             print(f"Todo '{todo_to_remove}' is removed from the todo list")
