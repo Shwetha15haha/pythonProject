@@ -236,6 +236,7 @@ print(get_max())
 # Prompt the user to enter a value for feet and inches
 feet_inches = input('Enter feet and inches: ')
 
+
 # Define a function to convert feet and inches to meters
 def parse(feet_inches):
     # Split the input string into two parts: feet and inches
@@ -246,6 +247,7 @@ def parse(feet_inches):
     inches = float(parts[1])
     # Return feet and inches
     return {'feet': feet, 'inches': inches}
+
 
 def convert(feet, inches):
     # Calculate the total meters by converting feet to meters and inches to meters
@@ -271,3 +273,19 @@ else:
 # Enter feet and inches: 5.10
 # 5.0 feet and 10.0 is equal to 1.778
 # Kid can use the slide
+
+
+# 20.
+
+def water_state(temperature):
+    if temperature <= 0:
+        return 'Solid'
+    elif temperature < 100:
+        return 'Liquid'
+    else:
+        return 'Gas'
+
+print(water_state(0))
+# Output : Solid
+
+
