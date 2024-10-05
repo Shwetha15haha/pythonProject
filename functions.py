@@ -13,6 +13,7 @@ def write_todos(todos_arg, filepath='files/todos.txt'):
     with open(filepath, 'w') as file_local:
         file_local.writelines(todos_arg)
 
+
 text = """
 Created two custom functions:
 get_todos(),
@@ -20,4 +21,11 @@ write_todos().
 These are called in if/elsif statements.
 """
 
-print(text)
+"""
+if __name__ = '__main__':  
+the main() function will only be executed if the script is run directly. 
+If the script is imported as a module in another script, main() will not be executed.
+"""
+
+if __name__ == '__main__':
+    print(text)
