@@ -352,3 +352,41 @@ print(score, '/', len(data))
 # Enter your answer: 2
 # 1:Wrong Answer.Your answer:1,Correct answer: 3
 # 2:Correct A
+
+
+# 22.
+import random  # Import the random module to generate random numbers
+
+while True:
+    # Prompt the user to enter the lower bound of the range
+    lower_value = int(input('Enter lower bound: '))
+    # Prompt the user to enter the upper bound of the range
+    upper_value = int(input('Enter upper bound: '))
+    # Generate a random integer within the specified range
+    random_whole_number = random.randint(lower_value, upper_value)
+    # Print the randomly generated number
+    print(f"{random_whole_number} is the random number.")
+
+# Get two numbers from the user and covert them to integers
+lower_bound = int(input("Enter the lower bound: "))
+upper_bound = int(input("Enter the upper bound: "))
+
+# Pick a random int using randrange()
+rand = random.randrange(lower_bound, upper_bound + 1)
+# We add 1 to upper_bound because randrange does not include the upper_bound number.
+
+print(rand)
+
+# randint(a, b):
+# Returns a random integer N such that a <= N <= b.
+#
+# Both endpoints a and b are inclusive.
+#
+# Simpler and direct for generating a single random integer within a closed range.
+#
+# randrange(start, stop[, step]):
+# Returns a randomly selected element from the range created by range(start, stop, step).
+#
+# start is inclusive, but stop is exclusive.
+#
+# More flexible as it allows you to specify a step parameter, which is the increment (default is 1).
