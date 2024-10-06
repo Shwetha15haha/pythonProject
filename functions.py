@@ -1,5 +1,7 @@
 # Creating a custom function to get todos
-def get_todos(filepath='files/todos.txt'):
+
+FILEPATH = 'files/todos.txt'
+def get_todos(filepath=FILEPATH):
     """Open the text file and
     read list of todos
      """
@@ -8,7 +10,7 @@ def get_todos(filepath='files/todos.txt'):
     return todos_local
 
 
-def write_todos(todos_arg, filepath='files/todos.txt'):
+def write_todos(todos_arg, filepath=FILEPATH):
     """Write the to do list to text file """
     with open(filepath, 'w') as file_local:
         file_local.writelines(todos_arg)
