@@ -255,6 +255,7 @@ def convert(feet, inches):
     # Return the result in meters
     return meters
 
+
 # Call the convert function with the user input and store the result
 parsed = parse(feet_inches)
 
@@ -269,6 +270,7 @@ if result < 1:
 else:
     # If the result is 1 meter or more, print that the kid can use the slide
     print('Kid can use the slide')
+
 
 # Enter feet and inches: 5.10
 # 5.0 feet and 10.0 is equal to 1.778
@@ -285,7 +287,68 @@ def water_state(temperature):
     else:
         return 'Gas'
 
+
 print(water_state(0))
 # Output : Solid
 
 
+# 21.
+import json  # Import the json module to work with JSON data
+
+# Open the JSON file in read mode
+with open('questions.json', 'r') as file:
+    content = file.read()  # Read the entire content of the file into a string
+
+# Parse the JSON string into a Python object (list of dictionaries)
+data = json.loads(content)
+
+print(data)  # Print the data to verify the content
+
+# Iterate over each question in the data
+for question in data:
+    # Print the question text
+    print(question["question_text"])
+    # Enumerate through the options and print each option with its corresponding number
+    for index, option in enumerate(question["options"]):
+        print(f"{index + 1}.{option}")
+    # Prompt the user to enter their answer (convert to integer)
+    user_choice = int(input('Enter your answer: '))
+    # Store the user's choice in the question dictionary
+    question["user_choice"] = user_choice
+
+# initialize the score variable to 0 for calculating the final score
+score = 0
+
+# Iterate over each question in the data to check the user's answers
+for index, question in enumerate(data):
+    # Compare the user's choice with the correct answer
+    if question["user_choice"] == question["correct_answer"]:
+        score += 1  # Increment the score if the answer is correct
+        result = 'Correct Answer'
+    else:
+        result = 'Wrong Answer'
+    # Prepare the result message with question number, result, user's answer, and correct answer
+    message = f"{index + 1}:{result}.Your answer:{question['user_choice']}," \
+              f"Correct answer: {question['correct_answer']}"
+    print(message)  # Print the result message for each question
+
+# Print the final score along with the total number of questions
+print(score, '/', len(data))
+
+# Example questions JSON structure:
+# [{'question_text': 'What are Dolphins?', 'options': ['Amphibians', 'Fish', 'Mammals', 'Birds'], 'correct_answer': 3},
+# {'question_text': "What occupies most of the earth's surface?", 'options': ['Lands', 'Water'], 'correct_answer': 2}]
+
+# [{'question_text': 'What are Dolphins?', 'options': ['Amphibians', 'Fish', 'Mammals', 'Birds'], 'correct_answer': 3}, {'question_text': "What occupies most of the earth's surface?", 'options': ['Lands', 'Water'], 'correct_answer': 2}]
+# What are Dolphins?
+# 1.Amphibians
+# 2.Fish
+# 3.Mammals
+# 4.Birds
+# Enter your answer: 1
+# What occupies most of the earth's surface?
+# 1.Lands
+# 2.Water
+# Enter your answer: 2
+# 1:Wrong Answer.Your answer:1,Correct answer: 3
+# 2:Correct A
