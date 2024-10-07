@@ -391,19 +391,76 @@ print(rand)
 #
 # More flexible as it allows you to specify a step parameter, which is the increment (default is 1).
 
+
 # 23.
 
-import FreeSimpleGUI as sg
+"""
+This script creates a simple GUI application for compressing files using FreeSimpleGUI.
 
+FreeSimpleGUI is a Python package that enables developers to easily create graphical user interfaces.
+"""
+
+import FreeSimpleGUI as sg  # Import FreeSimpleGUI for creating the graphical interface
+
+# Create a text label widget for selecting the file to compress
 label1 = sg.Text("Select file to compress:")
-input_box_1 = sg.InputText()
+# Create an input text box for the file path
+input_box_1 = sg.Input()
+# Create a button to browse and select the file
 choose_button_1 = sg.FileBrowse("Choose")
 
+# Create a text label widget for selecting the destination folder
 label2 = sg.Text("Select destination folder:")
-input_box_2 = sg.InputText()
+# Create an input text box for the destination folder path
+input_box_2 = sg.Input()
+# Create a button to browse and select the destination folder
 choose_button_2 = sg.FolderBrowse("Choose")
 
+# Create a button to initiate the compression process
 compress_button = sg.Button("Compress")
-window = sg.Window('File Compressor', layout=[[label1, input_box_1, choose_button_1], [label2, input_box_2, choose_button_2], [compress_button]])
+
+# Define the layout of the window with all widgets arranged in rows
+window = sg.Window('File Compressor', layout=[[label1, input_box_1, choose_button_1],
+                                              [label2, input_box_2, choose_button_2],
+                                              [compress_button]])
+
+# Display the window and wait for user interaction
 window.read()
+
+# Close the window when the interaction is complete
+window.close()
+
+
+# 24.
+
+"""
+This script creates a simple GUI application to convert feet and inches using FreeSimpleGUI.
+
+FreeSimpleGUI is a Python package that enables developers to easily create graphical user interfaces.
+"""
+
+import FreeSimpleGUI as sg  # Import FreeSimpleGUI for creating the graphical interface
+
+# Create a text label widget for entering feet
+label1 = sg.Text("Enter Feet:")
+# Create an input text box for feet value
+input_box_1 = sg.Input()
+
+# Create a text label widget for entering inches
+label2 = sg.Text("Enter inches:")
+# Create an input text box for inches value
+input_box_2 = sg.Input()
+
+# Create a button to initiate the conversion process
+convert_button = sg.Button("Convert")
+
+# Define the layout of the window with all widgets arranged in rows
+window = sg.Window('Converter', layout=[[label1, input_box_1],
+                                        [label2, input_box_2],
+                                        [convert_button]])
+
+# Display the window and wait for user interaction
+window.read()
+
+# Close the window when the interaction is complete
 window.close()
