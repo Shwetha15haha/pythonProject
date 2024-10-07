@@ -7,4 +7,4 @@ The shutil module offers a number of high-level operations on files and collecti
 import shutil  # Import the shutil module for high-level file operations
 
 # Create a ZIP archive from the 'files' directory, and name it 'output.zip'
-shutil.make_archive('files/weather.csv', 'zip', 'files')
+shutil.make_archive('files/weather.csv', 'zip', '../files')

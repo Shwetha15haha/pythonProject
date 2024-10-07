@@ -98,12 +98,12 @@ print("You chose", ips[index])
 a = "abcd"
 
 # Open a file 'whatever.txt' in write mode and write the string 'a' to the file
-file = open("files/whatever.txt", 'w')
+file = open("../files/whatever.txt", 'w')
 file.writelines(a)
 
 # 10.
 # Open the file 'files/todos.txt' in read mode
-file = open('files/todos.txt', 'r')
+file = open('../files/todos.txt', 'r')
 
 # Read the content of the file and strip any leading/trailing whitespace
 content = file.read().strip()
@@ -180,7 +180,7 @@ except ValueError:
 # 17.
 def get_average():
     # Open the file 'data.txt' in read mode
-    with open('files/data.txt', 'r') as file:
+    with open('../files/data.txt', 'r') as file:
         # Read all lines from the file
         data = file.readlines()
 

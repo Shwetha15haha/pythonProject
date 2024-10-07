@@ -1,7 +1,7 @@
 import csv  # Import the csv module for reading CSV files
 
 # Open the CSV file in read mode and convert it to a list of rows
-with open('files/weather.csv', 'r') as file:
+with open('../files/weather.csv', 'r') as file:
     data = list(csv.reader(file))
 print(data)  # Print the data to check the content
 
