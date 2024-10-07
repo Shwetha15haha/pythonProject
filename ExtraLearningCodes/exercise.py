@@ -390,3 +390,19 @@ print(rand)
 # start is inclusive, but stop is exclusive.
 #
 # More flexible as it allows you to specify a step parameter, which is the increment (default is 1).
+
+# 23.
+
+import FreeSimpleGUI as sg
+
+label1 = sg.Text("Select file to compress:")
+input_box_1 = sg.InputText("Enter File")
+choose_button_1 = sg.Button("Choose")
+
+label2 = sg.Text("Select destination folder:")
+input_box_2 = sg.InputText("Enter path")
+choose_button_2 = sg.Button("Choose")
+
+window = sg.Window('File zipper', layout=[[label1, input_box_1, choose_button_1], [label2, input_box_2, choose_button_2]])
+window.read()
+window.close()
