@@ -20,7 +20,8 @@ input_box = sg.InputText(tooltip="Enter todo")
 add_button = sg.Button("Add")
 
 # Define the layout of the window with the label, input box, and button
-window = sg.Window('My To-Do App', layout=[[label], [input_box, add_button]])
+# window = sg.Window('My To-Do App', layout=[[label], [input_box, add_button]])
+window = sg.Window('My To-Do App', layout=[[label, input_box, add_button]])
 
 # Display the window and wait for user interaction
 window.read()
