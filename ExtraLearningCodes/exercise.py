@@ -396,13 +396,14 @@ print(rand)
 import FreeSimpleGUI as sg
 
 label1 = sg.Text("Select file to compress:")
-input_box_1 = sg.InputText("Enter File")
-choose_button_1 = sg.Button("Choose")
+input_box_1 = sg.InputText()
+choose_button_1 = sg.FileBrowse("Choose")
 
 label2 = sg.Text("Select destination folder:")
-input_box_2 = sg.InputText("Enter path")
-choose_button_2 = sg.Button("Choose")
+input_box_2 = sg.InputText()
+choose_button_2 = sg.FolderBrowse("Choose")
 
-window = sg.Window('File zipper', layout=[[label1, input_box_1, choose_button_1], [label2, input_box_2, choose_button_2]])
+compress_button = sg.Button("Compress")
+window = sg.Window('File Compressor', layout=[[label1, input_box_1, choose_button_1], [label2, input_box_2, choose_button_2], [compress_button]])
 window.read()
 window.close()
