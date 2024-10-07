@@ -1,6 +1,6 @@
 # Creating a custom function to get todos
 
-FILEPATH = '../files/todos.txt'
+FILEPATH = 'todos.txt'
 def get_todos(filepath=FILEPATH):
     """Open the text file and
     read list of todos

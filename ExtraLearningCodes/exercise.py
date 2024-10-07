@@ -103,7 +103,7 @@ file.writelines(a)
 
 # 10.
 # Open the file 'files/todos.txt' in read mode
-file = open('../files/todos.txt', 'r')
+file = open('../TododAPP/todos.txt', 'r')
 
 # Read the content of the file and strip any leading/trailing whitespace
 content = file.read().strip()
