@@ -19,11 +19,18 @@ input_box = sg.InputText(tooltip="Enter todo", key='todo')
 # Create an 'Add' button to add new to-dos
 add_button = sg.Button("Add")
 
+list_box = sg.Listbox(values=functions.get_todos(),
+                      key='todos',
+                      enable_events=True,
+                      size=[40, 10])
+
+edit_button = sg.Button("Edit")
+
 # Define the layout of the window with the label, input box,button and font
 # window = sg.Window('My To-Do App', layout=[[label], [input_box, add_button]])
 window = sg.Window('My To-Do App',
-                   layout=[[label, input_box, add_button]],
-                   font=('Helvetica', 15))
+                   layout=[[label], [input_box, add_button], [list_box,edit_button]],
+                   font=('Helvetica', 10))
 
 # Display the window and wait for user interaction
 
@@ -43,6 +50,14 @@ while True:
             todos.append(new_todo)
             # Write the updated list of to-dos back to storage
             functions.write_todos(todos)
+        case "Edit":
+            todo_to_edit = values['todos'][0]
+            new_todo = values['todo']
+            todos = functions.get_todos()
+            index = todos.index(todo_to_edit)
+            todos[index] = todos
+            functions.write_todos(todos)
+            window['todos'].update(values=todos)
         case sg.WIN_CLOSED:
             # Break the loop if window is closed
             break
