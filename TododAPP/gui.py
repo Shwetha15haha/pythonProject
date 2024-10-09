@@ -44,6 +44,7 @@ while True:
     # `window.read()` listens for user interaction (like button clicks or typing)
     # `event` is the type of interaction (button click, window close, etc.)
     # `values` contains data from input fields keyed by their 'key'
+    print(window.read())  # e.g ('todos', {'todo': '', 'todos': ['Code\n']})
     event, values = window.read()
 
     # Print the event and values (for debugging purposes)
