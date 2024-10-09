@@ -39,6 +39,7 @@ while True:
     event, values = window.read()
     print(event)
     print(values)
+    print(values["todos"])
     # Handle events using a match-case statement
     match event:
         case "Add":
@@ -50,14 +51,17 @@ while True:
             todos.append(new_todo)
             # Write the updated list of to-dos back to storage
             functions.write_todos(todos)
+            window['todos'].update(values=todos)
         case "Edit":
             todo_to_edit = values['todos'][0]
             new_todo = values['todo']
             todos = functions.get_todos()
             index = todos.index(todo_to_edit)
-            todos[index] = todos
+            todos[index] = new_todo
             functions.write_todos(todos)
             window['todos'].update(values=todos)
+        case 'todos':
+            window['todo'].update(value=values['todos'][0])
         case sg.WIN_CLOSED:
             # Break the loop if window is closed
             break
