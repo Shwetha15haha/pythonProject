@@ -398,34 +398,72 @@ print(rand)
 This script creates a simple GUI application for compressing files using FreeSimpleGUI.
 
 FreeSimpleGUI is a Python package that enables developers to easily create graphical user interfaces.
+The application allows the user to select files for compression, choose a destination folder, and
+then compresses the files into a ZIP archive.
 """
 
 import FreeSimpleGUI as sg  # Import FreeSimpleGUI for creating the graphical interface
+from zip_file_create import make_archive  # Import the make_archive function for creating the ZIP file
 
-# Create a text label widget for selecting the file to compress
+# Create a label for the first section to ask the user to select files for compression
 label1 = sg.Text("Select file to compress:")
-# Create an input text box for the file path
+
+# Input box where the user can input file paths (this will automatically fill when they select files using the button)
 input_box_1 = sg.Input()
-# Create a button to browse and select the file
-choose_button_1 = sg.FileBrowse("Choose")
 
-# Create a text label widget for selecting the destination folder
+# Button that opens a file browser for selecting multiple files to compress
+choose_button_1 = sg.FilesBrowse("Choose", key='files')
+
+# Create a label for the second section to ask the user to select the destination folder
 label2 = sg.Text("Select destination folder:")
-# Create an input text box for the destination folder path
-input_box_2 = sg.Input()
-# Create a button to browse and select the destination folder
-choose_button_2 = sg.FolderBrowse("Choose")
 
-# Create a button to initiate the compression process
+# Input box where the user can input the destination folder path (automatically filled when browsing for folders)
+input_box_2 = sg.Input()
+
+# Button that opens a folder browser to select where to save the ZIP file
+choose_button_2 = sg.FolderBrowse("Choose", key='folder')
+
+# Create a button to trigger the compression process
 compress_button = sg.Button("Compress")
 
-# Define the layout of the window with all widgets arranged in rows
-window = sg.Window('File Compressor', layout=[[label1, input_box_1, choose_button_1],
-                                              [label2, input_box_2, choose_button_2],
-                                              [compress_button]])
+# Text element to display output messages (e.g., "Compression completed")
+output_label = sg.Text(key='output')
 
-# Display the window and wait for user interaction
-window.read()
+# Define the layout of the window with all the widgets arranged in rows
+layout = [[label1, input_box_1, choose_button_1],
+          [label2, input_box_2, choose_button_2],
+          [compress_button, output_label]]
+
+# Create the main application window with the title 'File Compressor'
+window = sg.Window('File Compressor', layout=layout)
+
+# Main event loop to handle user interactions
+while True:
+    # Read events (e.g., button presses) and the values entered in the input fields
+    event, values = window.read()
+
+    # If the window is closed, exit the loop
+    if event == sg.WIN_CLOSED:
+        break
+
+    # If the "Compress" button is clicked, start the compression process
+    if event == "Compress":
+        # Retrieve the file paths entered or selected by the user (separated by semicolons)
+        filepaths = values['files'].split(";")
+
+        # Retrieve the destination folder selected by the user
+        folder = values['folder']
+
+        # Check if filepaths and folder are valid (non-empty)
+        if filepaths and folder:
+            # Call the make_archive function to compress the selected files into the chosen folder
+            make_archive(filepaths, folder)
+
+            # Update the output label to notify the user that compression is completed
+            window["output"].update(value='Compression completed')
+        else:
+            # Update the output label to notify the user of an error
+            window["output"].update(value='Please select files and a destination folder')
 
 # Close the window when the interaction is complete
 window.close()
