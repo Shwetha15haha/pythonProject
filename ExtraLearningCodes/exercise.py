@@ -543,3 +543,53 @@ window.close()
 #
 # window.read()
 # window.close()
+
+#
+# 26.
+
+import FreeSimpleGUI as sg  # Import FreeSimpleGUI for creating the graphical interface
+
+# Create a text label widget for entering feet
+label1 = sg.Text("Enter Feet:")
+# Create an input text box for feet value
+input_box_1 = sg.Input(tooltip='Enter feet', key='feet')
+
+# Create a text label widget for entering inches
+label2 = sg.Text("Enter inches:")
+# Create an input text box for inches value
+input_box_2 = sg.Input(tooltip='Enter inch', key='inch')
+
+# Create a button to initiate the conversion process
+convert_button = sg.Button("Convert")
+
+# Text element to display output messages
+output_label = sg.Text(key='output')
+
+# Define the layout of the window with all widgets arranged in rows
+window = sg.Window('Converter', layout=[[label1, input_box_1],
+                                        [label2, input_box_2],
+                                        [convert_button, output_label]])
+
+print(window.read())
+
+# Main event loop to handle user interactions
+while True:
+    # Read events (e.g., button presses) and the values entered in the input fields
+    event, values = window.read()
+
+    # If the window is closed, exit the loop
+    if event == sg.WIN_CLOSED:
+        break
+    elif event == 'Convert':
+        feet = float(values['feet'])
+        print(feet)
+        inch = float(values['inch'])
+        print(inch)
+        convert_meter = ((feet * 12) + inch) * 0.0254
+        convert_meter = f"{convert_meter}m"
+        window["output"].update(value=convert_meter)
+    else:
+        window["output"].update(value='Please enter again')
+
+# Close the window when the interaction is complete
+window.close()
