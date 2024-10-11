@@ -547,49 +547,66 @@ window.close()
 #
 # 26.
 
-import FreeSimpleGUI as sg  # Import FreeSimpleGUI for creating the graphical interface
+import FreeSimpleGUI as sg  # Import PySimpleGUI (not FreeSimpleGUI) for creating the graphical interface
 
 # Create a text label widget for entering feet
 label1 = sg.Text("Enter Feet:")
-# Create an input text box for feet value
+
+# Create an input text box for feet value, with a tooltip for guidance
 input_box_1 = sg.Input(tooltip='Enter feet', key='feet')
 
 # Create a text label widget for entering inches
-label2 = sg.Text("Enter inches:")
-# Create an input text box for inches value
-input_box_2 = sg.Input(tooltip='Enter inch', key='inch')
+label2 = sg.Text("Enter Inches:")
+
+# Create an input text box for inches value, with a tooltip for guidance
+input_box_2 = sg.Input(tooltip='Enter inches', key='inch')
 
 # Create a button to initiate the conversion process
 convert_button = sg.Button("Convert")
 
-# Text element to display output messages
-output_label = sg.Text(key='output')
+# Text element to display output messages (conversion result or error)
+output_label = sg.Text(key='output', size=(40, 1))
 
 # Define the layout of the window with all widgets arranged in rows
-window = sg.Window('Converter', layout=[[label1, input_box_1],
-                                        [label2, input_box_2],
-                                        [convert_button, output_label]])
+layout = [[label1, input_box_1],
+          [label2, input_box_2],
+          [convert_button,
+          output_label]]  # Add a new row for the output label
 
-print(window.read())
+# Create the window with the given title and layout
+window = sg.Window('Feet and Inches to Meters Converter', layout)
 
 # Main event loop to handle user interactions
 while True:
     # Read events (e.g., button presses) and the values entered in the input fields
     event, values = window.read()
 
-    # If the window is closed, exit the loop
+    # If the user closes the window, break the loop and exit
     if event == sg.WIN_CLOSED:
         break
+    # If the "Convert" button is pressed, attempt to perform the conversion
     elif event == 'Convert':
-        feet = float(values['feet'])
-        print(feet)
-        inch = float(values['inch'])
-        print(inch)
-        convert_meter = ((feet * 12) + inch) * 0.0254
-        convert_meter = f"{convert_meter}m"
-        window["output"].update(value=convert_meter)
-    else:
-        window["output"].update(value='Please enter again')
+        try:
+            # Read the values entered by the user and convert them to float
+            feet = float(values['feet'])
+            inch = float(values['inch'])
 
-# Close the window when the interaction is complete
+            # Convert feet and inches to meters
+            convert_meter = ((feet * 12) + inch) * 0.0254
+            # Format the result to two decimal places and update the output label
+            convert_meter = f"= {convert_meter:.2f} meters"
+            window["output"].update(value=convert_meter)
+        except ValueError:
+            # If input is invalid, display an error message
+            window["output"].update(value='Invalid input! Please enter numeric values.')
+            window["feet"].update(value='')
+            window["inch"].update(value='')
+
+# Close the window when the loop ends
 window.close()
+
+
+# ('Convert', {'feet': '3', 'inch': '4'})
+# 3.0 feet.
+# 4.0 inch.
+# Conversion value: 1.016m.
