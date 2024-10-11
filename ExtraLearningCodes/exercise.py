@@ -547,7 +547,7 @@ window.close()
 #
 # 26.
 
-import FreeSimpleGUI as sg  # Import PySimpleGUI (not FreeSimpleGUI) for creating the graphical interface
+import FreeSimpleGUI as sg  # Import FreeSimpleGUI for creating the graphical interface
 
 # Create a text label widget for entering feet
 label1 = sg.Text("Enter Feet:")
@@ -597,7 +597,7 @@ while True:
             convert_meter = f"= {convert_meter:.2f} meters"
             window["output"].update(value=convert_meter)
         except ValueError:
-            # If input is invalid, display an error message
+            # If input is invalid, display an error message and clear entered value
             window["output"].update(value='Invalid input! Please enter numeric values.')
             window["feet"].update(value='')
             window["inch"].update(value='')
