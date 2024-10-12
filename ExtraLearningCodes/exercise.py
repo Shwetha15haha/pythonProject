@@ -620,3 +620,7 @@ filenames = ['a.txt', 'b.txt', 'c.txt', 'd.txt', 'e.txt', 'f.txt']
 for country, filename in zip(countries, filenames):
     with open(filename, 'w') as file:
         file.writelines(country)
+
+for country in countries:
+    with open(f"{country}.txt", 'w') as file:
+        file.writelines(country)
