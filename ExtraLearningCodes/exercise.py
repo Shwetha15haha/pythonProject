@@ -610,3 +610,13 @@ window.close()
 # 3.0 feet.
 # 4.0 inch.
 # Conversion value: 1.016m.
+
+
+# 27. Adding each country name in new file
+
+countries = ["Albania", "Belgium", "Canada", "Denmark", "Ethiopia", "France"]
+filenames = ['a.txt', 'b.txt', 'c.txt', 'd.txt', 'e.txt', 'f.txt']
+
+for country, filename in zip(countries, filenames):
+    with open(filename, 'w') as file:
+        file.writelines(country)
