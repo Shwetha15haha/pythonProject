@@ -624,3 +624,11 @@ for country, filename in zip(countries, filenames):
 for country in countries:
     with open(f"{country}.txt", 'w') as file:
         file.writelines(country)
+
+# 28. Creating a copy of text file
+
+with open('story.txt', 'r') as file:
+    content = file.read()
+
+with open('story_copy.txt', 'w') as file:
+    file.write(content)
