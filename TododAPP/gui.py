@@ -32,11 +32,12 @@ list_box = sg.Listbox(values=functions.get_todos(),
 
 # Create an 'Edit' button to allow users to edit selected to-do items
 edit_button = sg.Button("Edit")
+complete_button = sg.Button("Complete")
 
 # Define the layout of the window, placing widgets in a row-wise order
 # The window includes the label, input box, 'Add' button, list box, and 'Edit' button
 window = sg.Window('My To-Do App',
-                   layout=[[label], [input_box, add_button], [list_box, edit_button]],
+                   layout=[[label], [input_box, add_button], [list_box, edit_button, complete_button]],
                    font=('Helvetica', 10))  # Font style and size
 
 # Event loop to keep the window open and responsive to user input until the user closes it
@@ -44,7 +45,7 @@ while True:
     # `window.read()` listens for user interaction (like button clicks or typing)
     # `event` is the type of interaction (button click, window close, etc.)
     # `values` contains data from input fields keyed by their 'key'
-    print(window.read())  # e.g ('todos', {'todo': '', 'todos': ['Code\n']})
+    # print(window.read())  # e.g ('todos', {'todo': '', 'todos': ['Code\n']})
     event, values = window.read()
 
     # Print the event and values (for debugging purposes)
@@ -52,7 +53,7 @@ while True:
     print(values)  # e.g., {'todo': 'Master python', 'todos': [...]}
 
     # Print the selected to-do items (debugging)
-    print(values["todos"])
+    # print(values["todos"])
 
     # Handle events using match-case statement (similar to switch-case in other languages)
     match event:
@@ -96,6 +97,14 @@ while True:
             # Update the list box to reflect the edited to-do item
             window['todos'].update(values=todos)
 
+        case "Complete":
+            to_to_complete = values['todos'][0]
+            # print(to_to_complete)
+            todos = functions.get_todos()
+            todos.remove(to_to_complete)
+            functions.write_todos(todos)
+            window['todos'].update(values=todos)
+            window['todo'].update(value='')
         case 'todos':
             # If a to-do is selected in the list box:
             # Update the input box to display the selected to-do item (for possible editing)
