@@ -33,11 +33,16 @@ list_box = sg.Listbox(values=functions.get_todos(),
 # Create an 'Edit' button to allow users to edit selected to-do items
 edit_button = sg.Button("Edit")
 complete_button = sg.Button("Complete")
+exit_button = sg.Button("Exit")
 
 # Define the layout of the window, placing widgets in a row-wise order
 # The window includes the label, input box, 'Add' button, list box, and 'Edit' button
 window = sg.Window('My To-Do App',
-                   layout=[[label], [input_box, add_button], [list_box, edit_button, complete_button]],
+                   layout=[
+                       [label],
+                       [input_box, add_button],
+                       [list_box, edit_button, complete_button],
+                       [exit_button]],
                    font=('Helvetica', 10))  # Font style and size
 
 # Event loop to keep the window open and responsive to user input until the user closes it
@@ -105,6 +110,9 @@ while True:
             functions.write_todos(todos)
             window['todos'].update(values=todos)
             window['todo'].update(value='')
+
+        case "Exit":
+            break
         case 'todos':
             # If a to-do is selected in the list box:
             # Update the input box to display the selected to-do item (for possible editing)
