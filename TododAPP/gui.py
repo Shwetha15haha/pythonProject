@@ -12,8 +12,6 @@ This application allows users to:
 import functions
 
 # Import FreeSimpleGUI for creating the graphical interface
-# import PySimpleGUI as sg
-
 import FreeSimpleGUI as sg
 
 import time
