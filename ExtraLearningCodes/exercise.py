@@ -77,7 +77,7 @@ print(rank)
 
 # 7.
 # Initialize a list of filenames
-filenames = ['document', 'report', 'presentation']
+filenames = ['document.txt', 'report', 'presentation']
 
 # Iterate over each filename with its index and print it in a formatted string
 for index, filename in enumerate(filenames):
