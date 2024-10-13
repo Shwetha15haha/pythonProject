@@ -1,5 +1,5 @@
 Read
-Watch Movie
+Watch Sunset
 Apple
 BatmanEat Healthy
 Coding
@@ -7,4 +7,4 @@ BatmanCoding
 Youtube
 No Break
 Move
-MoveFood
+Run
