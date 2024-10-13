@@ -24,64 +24,56 @@ input_box = sg.InputText(tooltip="Enter todo", key='todo')
 add_button = sg.Button("Add")
 
 # Create a list box to display the current to-do items, getting the items using a custom function
-# `functions.get_todos()` `enable_events=True` ensures that when a list item is clicked, it triggers an event
+# `functions.get_todos()` retrieves the current list of tasks
 list_box = sg.Listbox(values=functions.get_todos(),
                       key='todos',  # The key 'todos' is used to retrieve or update the selected to-do
                       enable_events=True,  # Allows events to trigger on selecting an item
                       size=[40, 10])  # Sets the size of the list box
 
-# Create an 'Edit' button to allow users to edit selected to-do items
+# Create buttons for editing and completing tasks, and for exiting the application
 edit_button = sg.Button("Edit")
 complete_button = sg.Button("Complete")
 exit_button = sg.Button("Exit")
 
 # Define the layout of the window, placing widgets in a row-wise order
-# The window includes the label, input box, 'Add' button, list box, and 'Edit' button
 window = sg.Window('My To-Do App',
                    layout=[
                        [label],
                        [input_box, add_button],
                        [list_box, edit_button, complete_button],
-                       [exit_button]],
+                       [exit_button]],  # Organize the components in a 2x2 grid
                    font=('Helvetica', 10))  # Font style and size
 
 # Event loop to keep the window open and responsive to user input until the user closes it
 while True:
     # `window.read()` listens for user interaction (like button clicks or typing)
-    # `event` is the type of interaction (button click, window close, etc.)
-    # `values` contains data from input fields keyed by their 'key'
-    # print(window.read())  # e.g ('todos', {'todo': '', 'todos': ['Code\n']})
     event, values = window.read()
 
     # Print the event and values (for debugging purposes)
     print(event)  # e.g., "Add", "Edit", "todos", etc.
     print(values)  # e.g., {'todo': 'Master python', 'todos': [...]}
 
-    # Print the selected to-do items (debugging)
-    # print(values["todos"])
-
-    # Handle events using match-case statement (similar to switch-case in other languages)
+    # Handle events using match-case statement
     match event:
         case "Add":
-            # If the "Add" button is clicked:
-            # Retrieve the current list of to-dos from storage (using a custom function)
+            # Retrieve the current list of to-dos from storage
             todos = functions.get_todos()
 
             # Retrieve the new to-do item from the input box
             new_todo = values['todo']
 
-            # Append the new to-do item to the existing list of to-dos
+            # Append the new to-do item to the existing list
             todos.append(new_todo)
 
-            # Save the updated list of to-dos back to storage (using a custom function)
+            # Save the updated list of to-dos back to storage
             functions.write_todos(todos)
 
             # Update the list box in the GUI to display the updated to-do list
             window['todos'].update(values=todos)
+            window['todo'].update(value='')
 
         case "Edit":
-            # If the "Edit" button is clicked:
-            # Get the to-do item that was selected in the list box (first selected item in the list)
+            # Get the to-do item that was selected in the list box
             todo_to_edit = values['todos'][0]
 
             # Get the new to-do text from the input box
@@ -101,26 +93,36 @@ while True:
 
             # Update the list box to reflect the edited to-do item
             window['todos'].update(values=todos)
+            window['todo'].update(value='')
 
         case "Complete":
+            # Get the to-do item that was selected for completion
             to_to_complete = values['todos'][0]
-            # print(to_to_complete)
+
+            # Retrieve the current list of to-dos
             todos = functions.get_todos()
+
+            # Remove the completed to-do item from the list
             todos.remove(to_to_complete)
+
+            # Save the updated list of to-dos back to storage
             functions.write_todos(todos)
+
+            # Update the list box and clear the input box
             window['todos'].update(values=todos)
             window['todo'].update(value='')
 
         case "Exit":
+            # Exit the application loop
             break
+
         case 'todos':
-            # If a to-do is selected in the list box:
-            # Update the input box to display the selected to-do item (for possible editing)
+            # Update the input box to display the selected to-do item for editing
             window['todo'].update(value=values['todos'][0])
 
         case sg.WIN_CLOSED:
-            # If the user closes the window, exit the loop and close the application
+            # Exit the loop if the window is closed
             break
 
-# Close the window once the event loop has finished
+# Close the window after the event loop finishes
 window.close()
