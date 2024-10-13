@@ -1,0 +1,42 @@
+This script gui.py demonstrates how to build a graphical to-do list manager using the FreeSimpleGUI library, now featuring a real-time clock in the application window.
+The application allows users to add, edit, and complete to-do tasks with a simple, easy-to-use interface.
+Key features include:
+1.Adding new to-dos
+2.Editing existing to-dos
+3.Completing tasks
+4.Real-time clock display
+5.Viewing and managing the list of tasks in a graphical list box.
+
+Steps for Building the Application:
+Import Required Modules:
+functions: This module contains custom functions (get_todos, write_todos) for retrieving and saving to-do items.
+FreeSimpleGUI (imported as sg): This is the GUI library used to create and manage the graphical interface.
+time: The time module is used to display the current date and time in the window.
+Set the Theme:The theme for the GUI is set to 'Black' using sg.theme(), which changes the appearance of the application window to a dark theme.
+Create the Clock:A text widget is created with the key 'clock', which is updated with the current time during the event loop.
+Create UI Elements:
+Text Label: A label to guide the user to "Type in a todo" when entering new tasks.
+Input Box: An input field for users to type their new to-do items. It is referenced by the key 'todo'.
+Buttons: Buttons for adding, editing, completing tasks, and exiting the application.
+List Box: Displays the list of current to-do items fetched from storage via the functions.get_todos() method. This list allows users to select items for editing or marking as completed.
+Define Window Layout:
+
+The layout organizes the components in a row-wise order:
+The first row contains the clock.
+The second row includes the text label.
+The third row contains the input box and the "Add" button.
+The fourth row includes the list box and buttons for editing, completing, and exiting tasks.
+
+Event Loop:
+The event loop keeps the application running and listens for user inputs (button clicks, typing, or selecting items from the list).
+The current time is updated in real-time within the event loop every 10 milliseconds.
+Event Handling:
+
+Add Button: When pressed, it adds the new to-do from the input box to the list, updates the list box, and saves the updated list to storage.
+Edit Button: Allows editing of a selected task. If no task is selected, a pop-up message prompts the user to select an item.
+Complete Button: Marks the selected task as complete by removing it from the list and updating the list box. If no task is selected, a pop-up prompts the user.
+Exit Button: Closes the application when clicked.
+List Box Selection: Updates the input box to display the selected to-do for easy editing.
+Closing the Application:
+
+When the user closes the window or presses the "Exit" button, the event loop terminates, and the window is closed.
