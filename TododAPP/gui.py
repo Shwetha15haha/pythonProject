@@ -14,6 +14,12 @@ import functions
 # Import FreeSimpleGUI for creating the graphical interface
 import FreeSimpleGUI as sg
 
+import time
+
+sg.theme('Black')
+
+clock = sg.Text('', key='clock')
+
 # Create a text label widget with an instruction for the user
 label = sg.Text("Type in a todo")
 
@@ -38,6 +44,7 @@ exit_button = sg.Button("Exit")
 # Define the layout of the window, placing widgets in a row-wise order
 window = sg.Window('My To-Do App',
                    layout=[
+                       [clock],
                        [label],
                        [input_box, add_button],
                        [list_box, edit_button, complete_button],
@@ -47,8 +54,9 @@ window = sg.Window('My To-Do App',
 # Event loop to keep the window open and responsive to user input until the user closes it
 while True:
     # `window.read()` listens for user interaction (like button clicks or typing)
-    event, values = window.read()
+    event, values = window.read(timeout=10)
 
+    window['clock'].update(value=time.strftime("%b %d, %Y %H:%M:%S"))
     # Print the event and values (for debugging purposes)
     print(event)  # e.g., "Add", "Edit", "todos", etc.
     print(values)  # e.g., {'todo': 'Master python', 'todos': [...]}
