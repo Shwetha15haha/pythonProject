@@ -104,6 +104,7 @@ while True:
                 window['todos'].update(values=todos)
                 window['todo'].update(value='')
 
+
             except IndexError:
                 sg.popup("Please select an item to edit", font=('Helvetica', 10))
 

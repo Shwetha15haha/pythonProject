@@ -13,9 +13,11 @@ def get_todos(filepath=FILEPATH):
 
 
 def write_todos(todos_arg, filepath=FILEPATH):
-    """Write the to do list to text file """
+    """Write the to-do list to the text file, ensuring each item is followed by a newline."""
     with open(filepath, 'w') as file_local:
-        file_local.writelines(todos_arg)
+        # Add a newline character after each to-do if it doesn't already have one
+        file_local.writelines([todo + '\n' if not todo.endswith('\n') else todo for todo in todos_arg])
+
 
 
 text = """
