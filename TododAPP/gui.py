@@ -73,44 +73,52 @@ while True:
             window['todo'].update(value='')
 
         case "Edit":
-            # Get the to-do item that was selected in the list box
-            todo_to_edit = values['todos'][0]
+            try:
+                # Get the to-do item that was selected in the list box
+                todo_to_edit = values['todos'][0]
 
-            # Get the new to-do text from the input box
-            new_todo = values['todo']
+                # Get the new to-do text from the input box
+                new_todo = values['todo']
 
-            # Retrieve the current list of to-dos
-            todos = functions.get_todos()
+                # Retrieve the current list of to-dos
+                todos = functions.get_todos()
 
-            # Find the index of the selected to-do item in the list
-            index = todos.index(todo_to_edit)
+                # Find the index of the selected to-do item in the list
+                index = todos.index(todo_to_edit)
 
-            # Replace the selected to-do item with the new value
-            todos[index] = new_todo
+                # Replace the selected to-do item with the new value
+                todos[index] = new_todo
 
-            # Save the updated list of to-dos back to storage
-            functions.write_todos(todos)
+                # Save the updated list of to-dos back to storage
+                functions.write_todos(todos)
 
-            # Update the list box to reflect the edited to-do item
-            window['todos'].update(values=todos)
-            window['todo'].update(value='')
+                # Update the list box to reflect the edited to-do item
+                window['todos'].update(values=todos)
+                window['todo'].update(value='')
+
+            except IndexError:
+                sg.popup("Please select an item to edit", font=('Helvetica', 10))
 
         case "Complete":
-            # Get the to-do item that was selected for completion
-            to_to_complete = values['todos'][0]
+            try:
+                # Get the to-do item that was selected for completion
+                to_to_complete = values['todos'][0]
 
-            # Retrieve the current list of to-dos
-            todos = functions.get_todos()
+                # Retrieve the current list of to-dos
+                todos = functions.get_todos()
 
-            # Remove the completed to-do item from the list
-            todos.remove(to_to_complete)
+                # Remove the completed to-do item from the list
+                todos.remove(to_to_complete)
 
-            # Save the updated list of to-dos back to storage
-            functions.write_todos(todos)
+                # Save the updated list of to-dos back to storage
+                functions.write_todos(todos)
 
-            # Update the list box and clear the input box
-            window['todos'].update(values=todos)
-            window['todo'].update(value='')
+                # Update the list box and clear the input box
+                window['todos'].update(values=todos)
+                window['todo'].update(value='')
+
+            except IndexError:
+                sg.popup("Please select an item to complete", font=('Helvetica', 10))
 
         case "Exit":
             # Exit the application loop
