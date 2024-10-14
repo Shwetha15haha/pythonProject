@@ -36,3 +36,5 @@ If the script is imported as a module in another script, main() will not be exec
 
 if __name__ == '__main__':
     print(text)
+    print(get_todos())
+
