@@ -549,6 +549,8 @@ window.close()
 
 import FreeSimpleGUI as sg  # Import FreeSimpleGUI for creating the graphical interface
 
+sg.theme("Black")
+
 # Create a text label widget for entering feet
 label1 = sg.Text("Enter Feet:")
 
@@ -564,13 +566,16 @@ input_box_2 = sg.Input(tooltip='Enter inches', key='inch')
 # Create a button to initiate the conversion process
 convert_button = sg.Button("Convert")
 
+# Create a button to exit the app
+exit_button = sg.Button("Exit")
+
 # Text element to display output messages (conversion result or error)
 output_label = sg.Text(key='output', size=(40, 1))
 
 # Define the layout of the window with all widgets arranged in rows
 layout = [[label1, input_box_1],
           [label2, input_box_2],
-          [convert_button,
+          [convert_button, exit_button,
           output_label]]  # Add a new row for the output label
 
 # Create the window with the given title and layout
@@ -601,6 +606,8 @@ while True:
             window["output"].update(value='Invalid input! Please enter numeric values.')
             window["feet"].update(value='')
             window["inch"].update(value='')
+    elif event == 'Exit':
+        break
 
 # Close the window when the loop ends
 window.close()
