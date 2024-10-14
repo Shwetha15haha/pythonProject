@@ -38,7 +38,7 @@ list_box = sg.Listbox(values=functions.get_todos(),
 
 # Create buttons for editing and completing tasks, and for exiting the application
 edit_button = sg.Button("Edit")
-complete_button = sg.Button("Complete")
+complete_button = sg.Button(key="Complete", size=4, image_source="complete.png", mouseover_colors="LightBlue2")
 exit_button = sg.Button("Exit")
 
 # Define the layout of the window, placing widgets in a row-wise order
