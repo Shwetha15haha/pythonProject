@@ -16,6 +16,14 @@ import FreeSimpleGUI as sg
 
 import time
 
+
+import os
+
+# To create todo text file if it is not present
+if not os.path.exists('todos.txt'):
+    with open('todos.txt', 'w') as file:
+        pass
+
 sg.theme('Black')
 
 clock = sg.Text('', key='clock')
