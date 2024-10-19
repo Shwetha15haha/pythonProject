@@ -3,3 +3,7 @@ Meditate
 Drink water
 Breakfast
 Get ready
+Login
+Work
+Read
+Lunch
