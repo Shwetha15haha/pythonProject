@@ -1,3 +1,7 @@
 Eat
 Sleep
 Get up
+Run
+Breakfast
+Bath
+
