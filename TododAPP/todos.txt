@@ -1,7 +1,5 @@
-Eat
-Sleep
 Get up
-Run
+Meditate
+Drink water
 Breakfast
-Bath
-
+Get ready
