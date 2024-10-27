@@ -7,8 +7,11 @@ mood = input("How do you rate your today's mood from 1 to 10? ")
 # Prompt the user to share their thoughts
 thoughts = input("Let your thoughts flow:\n")
 
+# Directory path
+path = "C:/Users/moghe/PycharmProjects/pythonProject/Todo/Journal"
+
 # Open a file in write mode with the name based on the date
-with open(f"Journal/{date}.txt", 'w') as file:
+with open(f"{path}/{date}.txt", 'w') as file:
     # Write the date to the file
     file.write(f"Date: {date}\n")
     # Write the mood rating to the file
@@ -19,7 +22,7 @@ with open(f"Journal/{date}.txt", 'w') as file:
     file.write(thoughts.capitalize() + '\n')
 
 # Open the file in read mode to display its contents
-with open(f"Journal/{date}.txt", 'r') as file:
+with open(f"{path}/{date}.txt", 'r') as file:
     # Print the contents of the file
     print(file.read())
 
@@ -33,4 +36,3 @@ with open(f"Journal/{date}.txt", 'r') as file:
 #
 # Thoughts:
 # Going well as planned.
-

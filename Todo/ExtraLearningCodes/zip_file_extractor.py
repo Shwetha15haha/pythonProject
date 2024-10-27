@@ -23,8 +23,8 @@ def extract_archive(archivepath, dest_dir):
 # Main block to call the extract_archive function
 if __name__ == '__main__':
     # Example usage of extract_archive function
-    archive_path = r'C:\Users\moghe\PycharmProjects\pythonProject\ExtraLearningCodes\dest\compressed.zip'
-    destination_dir = r'C:\Users\moghe\PycharmProjects\pythonProject\ExtraLearningCodes\dest'
+    archive_path = r'C:\Users\moghe\PycharmProjects\pythonProject\Todo\ExtraLearningCodes\dest\compressed.zip'
+    destination_dir = r'C:\Users\moghe\PycharmProjects\pythonProject\Todo\ExtraLearningCodes\dest'
 
     # Extracting the ZIP archive to the destination directory
     extract_archive(archive_path, destination_dir)
