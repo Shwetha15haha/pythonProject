@@ -4,6 +4,17 @@ col1, col2 = st.columns(2)
 
 with col1:
     st.image('images/photo.jpg')
+    st.markdown(
+        """
+        <style>
+        img {
+            border: 3px solid #4CAF50;
+            border-radius: 10px;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
 
 with col2:
     st.title('Shwetha Moghe')
