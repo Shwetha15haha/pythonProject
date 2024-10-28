@@ -25,3 +25,8 @@ with col2:
     With a little over a year of experience,I'm passionate about turning data into simple, impactful insights.
     """
     st.info(content)
+
+content2 = """
+Below you can find details of some basic Python apps built by me"""
+st.info(content2)
+
