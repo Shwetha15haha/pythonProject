@@ -72,3 +72,7 @@ text = st.text_input(label='',
 
 # Add button to add new to do
 st.button("Add", type="primary", on_click=add_todo)
+
+# Execute bash command
+# streamlit run web.py
+
