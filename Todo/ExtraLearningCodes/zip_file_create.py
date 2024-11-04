@@ -30,4 +30,4 @@ def make_archive(filepaths, dest_dir):
 # Main block to call the make_archive function
 if __name__ == '__main__':
     # Example: Compressing a list of files into a ZIP file located in the 'dest' directory
-    make_archive(filepaths=['main.py'], dest_dir='dest')
+    make_archive(filepaths=['Home.py'], dest_dir='dest')
