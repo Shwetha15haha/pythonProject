@@ -74,5 +74,5 @@ text = st.text_input(label='',
 st.button("Add", type="primary", on_click=add_todo)
 
 # Execute bash command
-# streamlit run web.py
+# streamlit run Home.py
 
